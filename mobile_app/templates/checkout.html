@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block active_class_checkout %} active {% endblock %}
+
+
+{% block content %}
+        <div class="cart-table-area section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="checkout_details_area mt-50 clearfix">
+
+                            {% if messages %}
+                    {% for message in messages %}
+                        <div  class="alert alert-{{message.tags }}" role="alert">
+                            {{message}}
+                        </div>
+                    {% endfor %}
+                {% endif %}   
+
+
+                            <div class="cart-title">
+                                <h2>Checkout</h2>
+                            </div>
+
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <input type="text" class="form-control" id="first_name" value="{{user.username}}" name="name" placeholder="First Name" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="email" class="form-control" id="email" placeholder="Email" value="{{user.email}}" name="email" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <select class="w-100" id="country">
+                                            <option value="usa">Ghana</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="text" class="form-control" id="zipCode" placeholder="Enter Town" name="town" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input type="number" class="form-control" id="phone_number" min="0" placeholder="Enter Phone No" name="phone" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <textarea name="comment" name="comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="Leave a comment about your order"></textarea>
+                                    </div>
+                                 
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <button type="submit" name="addtocart" class="btn amado-btn" style="color: white;">
+                                        Confirm Order
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="cart-summary">
+                            <h5>Cart Total</h5>
+                            <ul class="summary-table">
+                                <li><span>Qty/Litre(s):</span> <span>{{order_quantity}}</span></li>
+                                <li><span>delivery:</span> <span>Free</span></li>
+                                <li><span>total:</span> <span>&#8373;{{order_total}}</span></li>
+                            </ul>
+
+                            <div class="payment-method">
+                                <!-- Cash on delivery -->
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" id="cod" checked>
+                                    <label class="custom-control-label" for="cod">Cash on Delivery</label>
+                                </div>
+                               
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+{% endblock %}
+  

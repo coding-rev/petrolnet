@@ -1,0 +1,107 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="The Hiring Manager">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>PetrolNet · Register</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static 'css/login/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+      *{
+        font-family: cambria;
+        font-weight: 500;
+      }
+      #hint_id_username, #hint_id_password1, #hint_id_password2{
+        display: none;
+      }
+      .alert{
+        width: 100%;
+      }
+      .alert-error{
+        width: 100%;
+        margin: 0;
+        float: left;
+      }
+      .alert-error ul{
+        width: 100%;
+        margin: 0;
+      }
+      .alert-error ul li{
+        width: 100%;
+        text-decoration: none;
+        background: red;
+        color: white;
+        padding: 2% 0%;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      input{
+        width: 100%;
+      }
+      label{
+        float: left;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/login/signin.css' %}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <form method="POST" class="form-signin">
+          
+
+          {% csrf_token %}
+          
+          <h1 class="h3 mb-3 font-weight-normal">PetrolNet · Login</h1>
+          
+          {% if messages %}
+            {% for message in messages %}
+                <div  class="alert alert-{{message.tags }}" role="alert">
+                    {{message}}
+                  </div>
+                  {% endfor %}
+          {% endif %}
+
+                
+          {{form|crispy}}
+
+    
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+      <hr>
+      <div style="display: flex; flex-direction: row;">
+        <p class="mt-1 mb-1 text-muted"> 
+          Already have an account? 
+          <a href="/login">Login</a>
+        </p>
+        
+      </div>
+      <hr>
+
+      <p class="mt-5 mb-3 text-muted">Copyright &copy; <script>document.write(new Date().getFullYear());</script> · PetrolNet</p>
+
+
+    
+    </form>
+
+</body>
+</html>

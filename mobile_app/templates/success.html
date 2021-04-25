@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <div class="cart-table-area section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="checkout_details_area mt-50 clearfix">
+
+                            <div class="cart-summary">
+                                <h5>PetrolNet - Order Receipt </h5>
+                                <ul class="summary-table">
+                                    <li><span>Name:</span> <span>{{user.username}}</span></li>
+                                    <li><span>Email:</span> <span>{{user.email}}</span></li>
+                                    <li><span>Qty/Litres:</span> <span>{{order_quantity}}</span></li>
+                                    <li><span>delivery:</span> <span>Free</span></li>
+                                    <li><span>total:</span> <span>&#8373;{{order_total}}</span></li>
+                                </ul>
+                                <ul class="summary-table">
+                                    <li><span>Payment Type:</span> <span>Cash on Delivery</span></li>
+                                </ul>
+
+                            <a class="btn amado-btn" onclick="window.print()" style="color: white; border-radius: 10px">
+                              Print Receipt
+                            </a>                   
+                        </div>
+                            
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+{% endblock %}
+  
